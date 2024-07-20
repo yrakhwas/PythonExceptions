@@ -56,7 +56,12 @@ print(dividingV2(10,0))
 
 # someS = input("Enter your string")
 # retStr(someS)    
-myDict = {"Key1" : "Value1", "Key2" : "Value2"}   
+myDict = {"Key1" : "Value1", "Key2" : "Value2"}
+
+def askInfo(myDict):
+    key = input("Enter key : ")
+    value = input("Enter value : ")
+    myDict[key] = value   
 def menu():
     print("1. Show dict")
     print("2. Search value dict")
@@ -77,9 +82,19 @@ def showValue(myDict):
     else:
         print("Invalid key")
 
+def showValue2(myDict):
+    key = input("Enter key : ")
+    if key in myDict:
+        print(f"Value : {myDict[key]}")
+    else:
+        print("Invalid key")
+
 choice = menu()
 match choice:
     case 1:
-        showDict(myDict)
+        try:
+            showDict(myDict)
+        except:
+            print("Invalid data!")
     case 2:
         showValue(myDict)
